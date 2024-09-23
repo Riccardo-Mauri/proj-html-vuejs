@@ -31,6 +31,133 @@ export default {
         { text: '<i class="fa-solid fa-magnifying-glass"></i>', url: '#' } // Icona Font Awesome
       ],
 
+      //-----------------------------------------------MAIN CONTETNT---------------------------------------------------------
+
+      //Dati per jumbotron
+      jumbocontent: {
+        desc: 'Today\'s pick',
+        title: 'Food Corner: Top Japanese Restaurants for Sushi',
+        data: 'March 25, 2019',
+      },
+
+      //Dati per giornale sul cibo titolo/ tre immagini con titolo e descrizione
+      journalcontent: {
+        maintitle: ' Foodie Journal',
+        articles: [
+          {
+            img: './imgs/single-post-img3-400x263.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            desc: 'By admin | March 25th, 2019'
+          },
+          {
+            img: './imgs/fi-roundup-400x263.jpg',
+            title: 'Roundup: My New Favourite Recipes For Healthy Living',
+            desc: 'By admin | March 25th, 2019'
+          },
+          {
+            img: './imgs/fi-toasts-400x263.jpg',
+            title: 'Why These Toasts with Tea are My New Favorite',
+            desc: 'By admin | March 25th, 2019'
+          }
+        ]
+      },
+      //Dati per popular recipes 
+      popularrecipes: {
+        articles: [
+          {
+            img: './imgs/Yogurt-Nan-600x395.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            type: 'Bakery,Featured,Healthy,Latest Recipes, Staff Picks',
+            desc: 'By admin | March 25th, 2019'
+          },
+          {
+            img: './imgs/Mixed-fruits-200x132.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            type: '',
+            desc: ''
+          },
+          {
+            img: './imgs/r-rachel-park-366508-unsplash-min-200x132.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            type: '',
+            desc: ''
+          },
+          {
+            img: './imgs/r-michelle-tsang-500721-unsplash-min-200x132.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            type: '',
+            desc: ''
+          },
+          {
+            img: './imgs/quick-summer-drink-460x295.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            type: '',
+            desc: ''
+          },
+          {
+            img: './imgs/r-maarten-van-den-heuvel-400626-unsplash-min-460x295.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            type: '',
+            desc: ''
+          },
+          {
+            img: './imgs/perfect-cosmopolitan-460x295.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            type: '',
+            desc: ''
+          },
+          {
+            img: './imgs/fi2x-6-460x295.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            type: '',
+            desc: ''
+          },
+          {
+            img: './imgs/r-brooke-lark-96398-unsplash-min-460x295.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            type: '',
+            desc: ''
+          },
+        ]
+      },
+      //Dati per sezione immagini 4x4 con hover
+      culinarycoll: [
+        { img: './imgs/drinks-recipes.png',
+          title: 'DRINKS'
+         },
+        { img: './imgs/soups-recipes.png',
+          title: 'SOUPS'
+         },
+        { img: './imgs/baking-recipes.png',
+          title: 'BAKERY'
+         },
+        { img: './imgs/dinner-recipes.png',
+          title: 'DINNER'
+         },
+        { img: './imgs/healthy-recipes.png',
+          title: 'HEALTHY'
+         },
+        { img: './imgs/staff-picks.png',
+          title: 'STAFF PICKS'
+         },
+        { img: './imgs/premium-recipes.png',
+          title: 'APPETISERS'
+         },
+        { img: './imgs/quick-easy-recipes.png',
+          title: 'QUICK & EASY'
+         },
+      ],
+
+
+
+
+
+
+
+
+
+
+
       //array immagini footer
       footerimgs: [
         { img: './imgs/Yogurt-Nan-400x263.jpg' },
@@ -94,65 +221,90 @@ export default {
     <main>
       <section>
         <!--jumbotron con sfondo e container all'interno con scritte  -->
-        <div class="jumbotron text-center p-5 bg-light">
+        <div class="jumbotron text-center d-flex align-items-center p-5 bg-light">
           <div class="rounded-div mx-auto">
-            <p>div al centro del jumbotron</p>
+            <div class="f py-2 px-4 rounded"><span class="text-white text-uppercase">{{ jumbocontent.desc }}</span>
+            </div>
+            <div>
+              <h1>{{ jumbocontent.title }}</h1>
+              <p>{{ jumbocontent.data }}</p>
+            </div>
           </div>
         </div>
 
       </section>
-      <section>
+      <section class="relative-cont">
         <!--container con titolo e tre carte con immagine titolo e titoletto e alzato leggemente sopra all'altro container-->
-        <div class="container">
+        <div class="container border border-2 z">
           <div class="d-flex justify-content-center">
-            <h3>FOODIE JOURNAL</h3>
+            <h3>{{ journalcontent.maintitle }}</h3>
           </div>
           <div class="d-flex justify-content-center">
-            <div>
-              <div>img</div>
-              <h4>titolo</h4>
-              <p>desc</p>
-            </div>
-            <div>
-              <div>img</div>
-              <h4>titolo</h4>
-              <p>desc</p>
-            </div>
-            <div>
-              <div>img</div>
-              <h4>titolo</h4>
-              <p>desc</p>
+            <!-- Ciclo sui contenuti del journal -->
+            <div v-for="(article, index) in journalcontent.articles" :key="index"
+              class="col-4 card d-flex justify-content-betweeen border-0 text-center my-2 px-4 py-4">
+              <img :src="article.img" alt="Journal image" class="journal-img">
+              <h4>{{ article.title }}</h4>
+              <p>{{ article.desc }}</p>
             </div>
           </div>
         </div>
       </section>
-      <section>
-        <!--container titolo paragrafo e due container divisi uno a sinistra e l'altro a destra-->
+      <section class="fixed-cont">
+        <!-- Titolo e paragrafo -->
         <div class="container text-center">
-          <h3>TITOLO</h3>
+          <h3>POPULAR RECIPES</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, quae.</p>
         </div>
+
         <div class="container d-flex justify-content-between">
-          <div>CONTENUTO DI SINISTRA</div>
-          <div>CONTENUTO DI DESTRA</div>
+          <!-- Container di sinistra: mostra solo il primo articolo -->
+          <div class="card col-6 mx-3 border-0 rounded-0">
+            <img :src="popularrecipes.articles[0].img" alt="Recipe Image" class="img-fluid">
+            <h4 class="px-4 py-4">{{ popularrecipes.articles[0].title }}</h4>
+            <p class="px-4">{{ popularrecipes.articles[0].desc }}</p>
+            <div class="px-4">
+              <hr>
+            </div>
+            <p class="px-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam cupiditate quam, cum
+              quaerat sed
+              debitis qui aperiam maiores voluptas exercitationem quo. Optio maiores minima ipsa animi unde ab illo
+              aliquam sit, qui eaque eum quasi corporis id, alias corrupti odit ea laboriosam dignissimos nostrum error!
+              Fugiat adipisci ea dolorum maiores.</p>
+            <div class="px-4 my-5"><button class="py-2 sub-button">LEARN MORE</button></div>
+          </div>
+
+          <!-- Container di destra: mostra solo le immagini degli altri articoli -->
+          <div class="col-6 mx-3">
+            <div class="row">
+              <!-- Itera su tutti gli articoli tranne il primo e mostra 2 immagini per riga -->
+              <div v-for="(article, index) in popularrecipes.articles.slice(1)" :key="index"
+                class="col-6 mb-3 d-flex justify-content-center">
+                <img :src="article.img" alt="Recipe Image" class="img-articles">
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      <section>
+
+      <section class="py-5">
         <!--container con titolo paragrafo e un altro container con dentro 8 immagini con sfondo e titolo-->
-        <div class="container text-center">
-          <h3>TITOLO</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, quae.</p>
+        <div class="container text-center py-5">
+          <h3 class="py-5">CULINARY COLLECTION</h3>
+          <p class="py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, quae.</p>
         </div>
-        <div class="container d-flex justify-content-between">
-          <div>img</div>
-          <div>img</div>
-          <div>img</div>
-          <div>img</div>
-          <div>img</div>
-          <div>img</div>
-          <div>img</div>
-          <div>img</div>
+        <div class="container">
+          <div class="row">
+            <!-- Itera sui dati della collezione culinaria per creare la griglia 4x2 -->
+            <div v-for="(item, index) in culinarycoll" :key="index" class="col-3 mb-4">
+              <div class="card border-0 rounded-0 text-center hover-card">
+                <img :src="item.img" alt="Culinary Image" class="img-fluid img-culinary">
+                <h5 class="mt-2">{{ item.title }}</h5>
+              </div>
+            </div>
+          </div>
         </div>
+        
       </section>
       <section>
         <!--container con a sinistra titolo e paragrafo e a destra un buttone arancione-->
@@ -346,18 +498,52 @@ a.nav-link:hover::after {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
+main {
+  background-color: #f5f5f1;
+}
 
+.jumbotron {
+  height: 700px;
+  background-image: url(../public/imgs/single-post-img3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
+.f {
+  background-color: #ff6347;
+  position: absolute;
+  top: -20px;
+}
 
+.relative-cont {
+  position: relative;
+}
 
+.z {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -70px;
+  background-color: white;
+}
 
+.fixed-cont {
+  padding-top: 500px;
+}
 
-
-
-
-
+.img-articles {
+  width: 100%;
+  height: 100%;
+}
+.img-culinary {
+  width: 50%;
+  height: 50%;
+  display: block; 
+  margin: 0 auto;
+}
 
 
 
