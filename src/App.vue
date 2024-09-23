@@ -122,36 +122,107 @@ export default {
       },
       //Dati per sezione immagini 4x4 con hover
       culinarycoll: [
-        { img: './imgs/drinks-recipes.png',
+        {
+          img: './imgs/drinks-recipes.png',
           title: 'DRINKS'
-         },
-        { img: './imgs/soups-recipes.png',
+        },
+        {
+          img: './imgs/soups-recipes.png',
           title: 'SOUPS'
-         },
-        { img: './imgs/baking-recipes.png',
+        },
+        {
+          img: './imgs/baking-recipes.png',
           title: 'BAKERY'
-         },
-        { img: './imgs/dinner-recipes.png',
+        },
+        {
+          img: './imgs/dinner-recipes.png',
           title: 'DINNER'
-         },
-        { img: './imgs/healthy-recipes.png',
+        },
+        {
+          img: './imgs/healthy-recipes.png',
           title: 'HEALTHY'
-         },
-        { img: './imgs/staff-picks.png',
+        },
+        {
+          img: './imgs/staff-picks.png',
           title: 'STAFF PICKS'
-         },
-        { img: './imgs/premium-recipes.png',
+        },
+        {
+          img: './imgs/premium-recipes.png',
           title: 'APPETISERS'
-         },
-        { img: './imgs/quick-easy-recipes.png',
+        },
+        {
+          img: './imgs/quick-easy-recipes.png',
           title: 'QUICK & EASY'
-         },
+        },
       ],
 
-
-
-
-
+      //Dati per mega sezione con card grande e righe di immagini
+      mainarticle: {
+        articles: [
+          {
+            img: './imgs/single-post-img3-800x527.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            data: 'By admin | March 25th, 2019'
+          },
+          {
+            img: './imgs/fi-roundup-400x263.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            data: 'By admin | March 25th, 2019'
+          },
+          {
+            img: './imgs/fi-korean-food-400x263.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            data: 'By admin | March 25th, 2019'
+          },
+          {
+            img: './imgs/fi-toasts-400x263.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            data: 'By admin | March 25th, 2019'
+          },
+          {
+            img: './imgs/fi-street-food-400x263.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            data: 'By admin | March 25th, 2019'
+          },
+          {
+            img: './imgs/fi-organic-breakfast-400x263.jpg',
+            title: 'Food Corner: Top Japanese Restaurants for Sushi',
+            data: 'By admin | March 25th, 2019'
+          },
+          {
+            img: './imgs/fi-water-side-rest-400x263.jpg',
+            title: '5 Waterside Restaurants in Istanbul for Special Events',
+            data: 'By admin | March 25th, 2019'
+          },
+        ]
+      },
+      //Dati per cityguide
+      cityguide: {
+        img: './imgs/singapore-featured-image-200x132.jpg',
+        title: 'Singapore'
+      },
+      //Dati per followus
+      followUs: [
+        { img: '<i class="fa-brands fa-facebook-f"></i>', url: '#' },
+        { img: '<i class="fa-brands fa-instagram"></i>', url: '#' },
+        { img: '<i class="fa-brands fa-twitter"></i>', url: '#' },
+        { img: '<i class="fa-brands fa-pinterest-p"></i>', url: '#' }
+      ],
+      //Dati per popular / recent messages
+      msgarray: [
+        { img: './imgs/single-post-img3-66x66.jpg',
+          message: 'Food Corner: Top Japanese Restaurants for Sushi',
+          data: 'March 25th, 2019'
+        },
+        { img: './imgs/singapore-featured-image-66x66.jpg',
+          message: 'City Guide: Singapore',
+          data: 'February 27th, 2019'
+        },
+        { img: './imgs/slide1-bg-66x66.jpg',
+          message: '6 Nutritional Tips to Help Burn Body Fat',
+          data: 'February 28th, 2019'
+        }
+      ],
 
 
 
@@ -223,7 +294,8 @@ export default {
         <!--jumbotron con sfondo e container all'interno con scritte  -->
         <div class="jumbotron text-center d-flex align-items-center p-5 bg-light">
           <div class="rounded-div mx-auto">
-            <div class="f py-2 px-4 rounded"><span class="text-white text-uppercase">{{ jumbocontent.desc }}</span>
+            <div class="mini-cont-jumbo py-2 px-4 rounded"><span class="text-white text-uppercase">{{ jumbocontent.desc
+                }}</span>
             </div>
             <div>
               <h1>{{ jumbocontent.title }}</h1>
@@ -235,14 +307,14 @@ export default {
       </section>
       <section class="relative-cont">
         <!--container con titolo e tre carte con immagine titolo e titoletto e alzato leggemente sopra all'altro container-->
-        <div class="container border border-2 z">
+        <div class="container journal-cont">
           <div class="d-flex justify-content-center">
             <h3>{{ journalcontent.maintitle }}</h3>
           </div>
           <div class="d-flex justify-content-center">
             <!-- Ciclo sui contenuti del journal -->
             <div v-for="(article, index) in journalcontent.articles" :key="index"
-              class="col-4 card d-flex justify-content-betweeen border-0 text-center my-2 px-4 py-4">
+              class="col-4 card d-flex justify-content-betweeen border-0 text-center my-2 px-3 py-4">
               <img :src="article.img" alt="Journal image" class="journal-img">
               <h4>{{ article.title }}</h4>
               <p>{{ article.desc }}</p>
@@ -259,7 +331,7 @@ export default {
 
         <div class="container d-flex justify-content-between">
           <!-- Container di sinistra: mostra solo il primo articolo -->
-          <div class="card col-6 mx-3 border-0 rounded-0">
+          <div class="card col-6  border-0 rounded-0">
             <img :src="popularrecipes.articles[0].img" alt="Recipe Image" class="img-fluid">
             <h4 class="px-4 py-4">{{ popularrecipes.articles[0].title }}</h4>
             <p class="px-4">{{ popularrecipes.articles[0].desc }}</p>
@@ -275,11 +347,11 @@ export default {
           </div>
 
           <!-- Container di destra: mostra solo le immagini degli altri articoli -->
-          <div class="col-6 mx-3">
+          <div class="col-6 px-3">
             <div class="row">
               <!-- Itera su tutti gli articoli tranne il primo e mostra 2 immagini per riga -->
               <div v-for="(article, index) in popularrecipes.articles.slice(1)" :key="index"
-                class="col-6 mb-3 d-flex justify-content-center">
+                class="col-6 mb-3 pm-3 d-flex justify-content-center">
                 <img :src="article.img" alt="Recipe Image" class="img-articles">
               </div>
             </div>
@@ -304,58 +376,116 @@ export default {
             </div>
           </div>
         </div>
-        
+
       </section>
       <section>
         <!--container con a sinistra titolo e paragrafo e a destra un buttone arancione-->
-        <div class="container d-flex">
-          <div>
-            <div>TITOLO</div>
+        <div class="container d-flex justify-content-between align-items-center">
+          <div class="col-10">
+            <div>FARM TO TABLE</div>
             <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi, quas.</div>
           </div>
-          <div>
-            <button>READ OUR BLOG</button>
+          <div class="">
+            <button class="py-2 sub-button">READ OUR BLOG <span><i class="fa-solid fa-book-open"></i></span></button>
           </div>
         </div>
       </section>
       <section>
         <!--mega section con un container diviso in due 80/20 a sinistra il container di 80% con una card principale enorme con sotto 6 cards da 2 per riga con  titolo/paragrafo/descrizione/ a sinistra readm more e a destra icona commenti e sotto una riga con load more posts
         la seconda parte a destra di 20% del container avrà a immagine con sotto un altra immagine-descrizione laterale e sotto una hr una search bar un div con "follow us" e icone FB/ISNT/X/YT/P , sotto ancora un altro div con tre righe di icone rotonde paragrafo , infine un div con simulazione di tweets-->
-        <div class="container d-flex justify-content-between">
-          <div>
-            CONTAINER DI SINISTRA AL 80%
-            <div>CARD PIù GRANDE</div>
-            <div>CARD PIù PICCOLA</div>
-            <div>CARD PIù PICCOLA</div>
-            <div>CARD PIù PICCOLA</div>
-            <div>CARD PIù PICCOLA</div>
-            <div>CARD PIù PICCOLA</div>
-            <div>CARD PIù PICCOLA</div>
-            <div>LOAD MORE POSTS</div>
+        <div class="container d-flex justify-content-between py-5">
+          <div class="col-8">
+            <div class="mb-4">
+              <!-- Card più grande -->
+              <div class="card border-0 rounded-0">
+                <img :src="mainarticle.articles[0].img" class="card-img-top rounded-0" alt="Article Image">
+                <div class="card-body">
+                  <h5 class="card-title">{{ mainarticle.articles[0].title }}</h5>
+                  <p class="card-text">{{ mainarticle.articles[0].data }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="row">
+                <!-- Righe di card più piccole -->
+                <div class="col-6" v-for="(article, index) in mainarticle.articles.slice(1)" :key="index">
+                  <div class="card border-0 rounded-0 mb-4">
+                    <img :src="article.img" class="card-img-top rounded-0" alt="Article Image">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">{{ article.title }}</h5>
+                      <p class="card-text text-center">{{ article.data }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center mt-4">
+              <button class="border-0 w-100 py-2 text-black">LOAD MORE POSTS</button>
+            </div>
           </div>
-          <div>
-            CONTAINER DI DESTRA AL 20%
-            <div>card con immagine</div>
-            <div>card più piccola con immagine e descrizione</div>
-            <hr>
-            <div>searchbar</div>
-            <div>
-              <div>Follow Us</div>
-              <div>FB INST X YT P</div>
-            </div>
-            <div>
-              <div>
-                <button>Popular</button>
-                <button>Recent</button>
-              </div>
-              <div>
-                <div>img/desc</div>
-                <div>img/desc</div>
-                <div>img/desc</div>
+          <div class="col-3">
+            <div class="z d-flex justify-content-center align-items-center w-100">
+              <div class="text-center w-50 h-50 py-5">
+                <h4>VIEW OUR LATEST RECIPE</h4>
               </div>
             </div>
+            <div class="w-100 city-guide py-4">
+              <img class="w-100" :src="cityguide.img" alt="cityguide.title">
+              <div class="city-desc p-1">City Guide: {{ cityguide.title }}</div>
+              <div><button class="w-100 border-0 p-1 sub-button">VIEW ALL CITY GUIDES</button></div>
+            </div>
+            <div class="py-2">
+              <hr>
+            </div>
+            <div class="py-2">
+              <div class="search-container">
+                <input type="search" name="search" id="searchbar" placeholder="Search..."
+                  class="border-1 rounded-1 p-1 w-100">
+              </div>
+
+            </div>
+            <div class="py-5">
+              <div class="py-1">Follow Us</div>
+              <div class="d-flex">
+                <div class="links-follow-us text-center d-flex justify-content-center align-items-center rounded-1"
+                  v-for="(social, index) in followUs" :key="index">
+                  <a :href="social.url" class="icon-link" v-html="social.img"></a>
+                </div>
+              </div>
+
+            </div>
             <div>
-              finto tweet
+              <div class="py-5">
+                <button class="border-1 active-button tweet-button w-50">Popular</button>
+                <button class="border-1 w-50 tweet-button">Recent</button>
+              </div>
+              <div>
+                <div v-for="(msg, index) in msgarray" :key="index" class="d-flex py-2">
+                  <div class="rounded-circle">
+                    <img :src="msg.img" alt="Message Image" class="rounded-circle">
+                  </div>
+                  <div class="px-2">
+                  <p>{{ msg.message }}</p>
+                  <p>{{ msg.data }}</p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="border-0 rounded-1 tweet-cont">
+              <div class="container">
+                <div><h5>Tweets <span>By<a href="#">@theme_fusion</a></span></h5></div>
+                <ul>
+                  <li>
+                    <h6>ThemeFusion</h6>
+                    <span>@theme_fusion</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi labore commodi sequi? Repellat cupiditate blanditiis recusandae natus, aperiam sint numquam, in provident voluptatibus, voluptate molestiae dolorum eaque doloribus commodi quidem!</p>
+                    <div class="py-1"><img src="../public/imgs/En2TRxLW4AEiWUN.jpeg" alt="" class="img-tweet"></div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -512,7 +642,7 @@ main {
   background-repeat: no-repeat;
 }
 
-.f {
+.mini-cont-jumbo {
   background-color: #ff6347;
   position: absolute;
   top: -20px;
@@ -522,7 +652,7 @@ main {
   position: relative;
 }
 
-.z {
+.journal-cont {
   position: absolute;
   left: 0;
   right: 0;
@@ -538,16 +668,59 @@ main {
   width: 100%;
   height: 100%;
 }
+
 .img-culinary {
   width: 50%;
   height: 50%;
-  display: block; 
+  display: block;
   margin: 0 auto;
 }
 
+.z {
+  height: 400px;
+  background-image: url(../public/imgs/ad-bg.jpg);
+  background-size: cover;
+}
 
+.city-guide {
+  position: relative;
+}
 
+.city-desc {
+  position: absolute;
+  top: 170px;
+  background-color: black;
+  color: white;
+}
 
+.links-follow-us {
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #67615A;
+
+}
+
+.icon-link {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #67615A;
+}
+
+.tweet-button{
+  height: 50px;
+  background-color: #f5f5f1;
+}
+
+.tweet-cont{
+  background-color: white;
+}
+.active-button{
+  background-color: white;
+}
+.img-tweet{
+  width: 80%;
+}
 .footer-jumbo {
   background-image: url(../public/imgs/subscribe-sec-bg.png);
   background-repeat: no-repeat;
