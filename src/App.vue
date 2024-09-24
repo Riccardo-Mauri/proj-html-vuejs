@@ -175,7 +175,7 @@ export default {
             img: './imgs/single-post-img3-800x527.jpg',
             title: 'Food Corner: Top Japanese Restaurants for Sushi',
             data: 'By admin | March 25th, 2019',
-            desc:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."'
+            desc: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."'
           },
           {
             img: './imgs/fi-roundup-400x263.jpg',
@@ -222,16 +222,20 @@ export default {
         { img: '<i class="fa-brands fa-pinterest-p"></i>', url: '#' }
       ],
       //Dati per popular / recent messages
+      isActive: 'popular', // Imposta il pulsante di default su "Popular"
       msgarray: [
-        { img: './imgs/single-post-img3-66x66.jpg',
+        {
+          img: './imgs/single-post-img3-66x66.jpg',
           message: 'Food Corner: Top Japanese Restaurants for Sushi',
           data: 'March 25th, 2019'
         },
-        { img: './imgs/singapore-featured-image-66x66.jpg',
+        {
+          img: './imgs/singapore-featured-image-66x66.jpg',
           message: 'City Guide: Singapore',
           data: 'February 27th, 2019'
         },
-        { img: './imgs/slide1-bg-66x66.jpg',
+        {
+          img: './imgs/slide1-bg-66x66.jpg',
           message: '6 Nutritional Tips to Help Burn Body Fat',
           data: 'February 28th, 2019'
         }
@@ -266,8 +270,13 @@ export default {
         imgstore: './imgs/download-app-store-200x66.png'
       }
     };
-  }
+  }, methods: {
+    setActive(button) {
+      this.isActive = button; // Aggiorna il pulsante attivo
+    },
+  },
 }
+
 </script>
 
 <template>
@@ -316,14 +325,23 @@ export default {
             </div>
           </div>
         </div>
-
+        <div class="sales-cont">
+          <div class="bg-light border-0 rounded-1 my-1 py-1 text-center">
+            <div><a href="#" class="text-black"><i class="fa-solid fa-folder fs-2"></i></a></div>
+            <div><span class="p-2">Demos</span></div>
+          </div>
+          <div class="bg-light py-1 text-center border-0 rounded-1">
+            <div class="text-success"><span>$</span><span class="fs-3 fw-bold">39</span></div>
+            <div><span class="p-2">On Sale</span></div>
+          </div>
+        </div>
       </section>
       <section class="relative-cont py-5">
         <div class="container journal-cont">
           <div class="text-center mb-4">
-            <h3>{{ journalcontent.maintitle }}</h3>
+            <h3 class="py-3 text-uppercase">{{ journalcontent.maintitle }}</h3>
           </div>
-      
+
           <div class="row">
             <!-- Ciclo sui contenuti del journal -->
             <div v-for="(article, index) in journalcontent.articles" :key="index" class="col-md-4">
@@ -349,42 +367,46 @@ export default {
           </div>
         </div>
       </section>
-      
+
       <section class="fixed-cont">
         <!-- Titolo e paragrafo -->
         <div class="container text-center">
           <h3>POPULAR RECIPES</h3>
           <p class="py-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, quae.</p>
         </div>
-      
+
         <div class="container d-flex justify-content-between">
           <!-- Container di sinistra: mostra solo il primo articolo -->
           <div class="card recipes-cont col-6 border-0 rounded-0 position-relative">
             <div class="position-relative"> <!-- Aggiunto per il posizionamento dell'overlay -->
               <img :src="popularrecipes.articles[0].img" alt="Recipe Image" class="img-fluid">
-              
+
               <!-- Overlay per l'immagine -->
               <div class="hover-overlay d-flex justify-content-center align-items-center flex-column">
-                <a :href="popularrecipes.articles[0].url" @click.prevent class="hover-icon mb-2"> <!-- Rendi l'icona un link -->
+                <a :href="popularrecipes.articles[0].url" @click.prevent class="hover-icon mb-2">
+                  <!-- Rendi l'icona un link -->
                   <i class="fa fa-link"></i>
                 </a>
                 <h4 class="overlay-title">{{ popularrecipes.articles[0].title }}</h4> <!-- Titolo nell'overlay -->
               </div>
             </div>
-      
+
             <h4 class="px-4 py-4">{{ popularrecipes.articles[0].title }}</h4>
             <p class="px-4">{{ popularrecipes.articles[0].type }}</p>
             <div class="px-4">
               <hr>
             </div>
             <p class="px-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam cupiditate quam, cum quaerat sed debitis qui aperiam maiores voluptas exercitationem quo. Optio maiores minima ipsa animi unde ab illo aliquam sit, qui eaque eum quasi corporis id, alias corrupti odit ea laboriosam dignissimos nostrum error! Fugiat adipisci ea dolorum maiores.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam cupiditate quam, cum quaerat sed
+              debitis qui aperiam maiores voluptas exercitationem quo. Optio maiores minima ipsa animi unde ab illo
+              aliquam sit, qui eaque eum quasi corporis id, alias corrupti odit ea laboriosam dignissimos nostrum error!
+              Fugiat adipisci ea dolorum maiores.
             </p>
             <div class="px-4 my-5">
               <button class="py-2 sub-button">LEARN MORE</button>
             </div>
           </div>
-      
+
           <!-- Container di destra: mostra solo le immagini degli altri articoli -->
           <div class="col-6 px-3">
             <div class="row">
@@ -404,8 +426,8 @@ export default {
           </div>
         </div>
       </section>
-      
-      
+
+
       <section class="py-5">
         <div class="container text-center py-5">
           <h3 class="py-5">CULINARY COLLECTION</h3>
@@ -424,10 +446,10 @@ export default {
           </div>
         </div>
       </section>
-      
-      
-      
-      
+
+
+
+
       <section>
         <!--container con a sinistra titolo e paragrafo e a destra un buttone arancione-->
         <div class="container d-flex justify-content-between align-items-center">
@@ -452,8 +474,10 @@ export default {
                 <div class="card-body">
                   <h5 class="card-title">{{ mainarticle.articles[0].title }}</h5>
                   <p class="card-text">{{ mainarticle.articles[0].data }}</p>
-                  <div><hr class="style-hr"></div>
-                  <p>{{mainarticle.articles[0].desc}}</p>
+                  <div>
+                    <hr class="style-hr">
+                  </div>
+                  <p>{{ mainarticle.articles[0].desc }}</p>
                   <div class="d-flex justify-content-between">
                     <div><a href="#" class="readlink-card">Read More ></a></div>
                     <div><span><i class="fa-regular fa-comments"></i></span></div>
@@ -502,45 +526,45 @@ export default {
               </div>
 
             </div>
-            <div class="py-5">
-              <div class="py-1">Follow Us</div>
-              <div class="d-flex">
-                <div class="links-follow-us text-center d-flex justify-content-center align-items-center rounded-1"
-                  v-for="(social, index) in followUs" :key="index">
-                  <a :href="social.url" class="icon-link" v-html="social.img"></a>
-                </div>
-              </div>
-
-            </div>
             <div>
               <div class="py-5">
-                <button class="border-1 active-button tweet-button w-50">Popular</button>
-                <button class="border-1 w-50 tweet-button">Recent</button>
+                <button :class="['border-1', isActive === 'popular' ? 'active-button' : '', 'tweet-button', 'w-50']"
+                  @click="setActive('popular')">
+                  Popular
+                </button>
+                <button :class="['border-1', isActive === 'recent' ? 'active-button' : '', 'tweet-button', 'w-50']"
+                  @click="setActive('recent')">
+                  Recent
+                </button>
               </div>
               <div>
                 <div v-for="(msg, index) in msgarray" :key="index" class="d-flex py-2">
                   <div class="rounded-circle">
-                    <img :src="msg.img" alt="Message Image" class="rounded-circle">
+                    <img :src="msg.img" alt="Message Image" class="rounded-circle" />
                   </div>
                   <div class="px-2">
-                  <p>{{ msg.message }}</p>
-                  <p>{{ msg.data }}</p>
+                    <p>{{ msg.message }}</p>
+                    <p>{{ msg.data }}</p>
                   </div>
                 </div>
               </div>
-              
             </div>
             <div class="border-0 rounded-1 tweet-cont">
               <div class="container py-2">
-                <div><h5>Tweets <span>By<a href="#">@theme_fusion</a></span></h5></div>
+                <div>
+                  <h5>Tweets <span>By<a href="#">@theme_fusion</a></span></h5>
+                </div>
                 <ul>
                   <li class="py-1">
                     <h6>ThemeFusion</h6>
                     <span>@theme_fusion</span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi labore commodi sequi? Repellat cupiditate blanditiis recusandae natus, aperiam sint numquam, in provident voluptatibus, voluptate molestiae dolorum eaque doloribus commodi quidem!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi labore commodi sequi? Repellat
+                      cupiditate blanditiis recusandae natus, aperiam sint numquam, in provident voluptatibus, voluptate
+                      molestiae dolorum eaque doloribus commodi quidem!</p>
                     <div class="py-1"><img src="../public/imgs/En2TRxLW4AEiWUN.jpeg" alt="" class="img-tweet"></div>
                     <div class="d-flex justify-content-between py-2">
-                      <div><span><i class="fa-regular fa-heart"></i></span><span class="px-3"><i class="fa-solid fa-right-from-bracket"></i></span></div>
+                      <div><span><i class="fa-regular fa-heart"></i></span><span class="px-3"><i
+                            class="fa-solid fa-right-from-bracket"></i></span></div>
                       <div><span>21h</span></div>
                     </div>
                   </li>
@@ -650,7 +674,7 @@ a.nav-link {
   font-weight: 500;
   padding: 10px;
   transition: color 0.3s ease;
-  
+
 }
 
 
@@ -667,7 +691,7 @@ a.nav-link::after {
 
 a.nav-link:hover {
   color: #ff6347;
- 
+
 }
 
 a.nav-link:hover::after {
@@ -695,12 +719,19 @@ main {
   background-image: url(../public/imgs/single-post-img3.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 .mini-cont-jumbo {
   background-color: #ff6347;
   position: absolute;
   top: -20px;
+}
+
+.sales-cont {
+  position: absolute;
+  top: 210px;
+  right: 20px;
 }
 
 .relative-cont {
@@ -723,23 +754,25 @@ main {
   position: relative;
   overflow: hidden;
 }
-.readlink-card{
+
+.readlink-card {
   text-decoration: none;
   color: #000;
 }
+
 .hover-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color:#ff6347b7;
+  background-color: #ff6347b7;
   transition: opacity 0.3s ease;
   opacity: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .card:hover .hover-overlay {
@@ -795,6 +828,7 @@ p {
 .card-img-wrapper:hover .hover-overlay {
   opacity: 1;
 }
+
 /* Icona circolare */
 .hover-icon {
   width: 50px;
@@ -818,14 +852,16 @@ p {
   top: -70px;
   background-color: white;
 }
+
 .recipes-cont img {
-  width: 100%;        
-  height: auto;      
-  display: block;    
+  width: 100%;
+  height: auto;
+  display: block;
 }
+
 .hover-icon {
-  color: white; 
-  font-size: 24px; 
+  color: white;
+  font-size: 24px;
 }
 
 .fixed-cont {
@@ -836,22 +872,23 @@ p {
   width: 100%;
   height: 100%;
 }
+
 .title-container {
-  transition: background-color 0.3s ease; 
-  padding: 10px; 
+  transition: background-color 0.3s ease;
+  padding: 10px;
 }
 
 .title-container:hover {
-  background-color: #ff6347; 
+  background-color: #ff6347;
 }
 
 .title-hover {
-  transition: color 0.3s ease; 
-  color: black; 
+  transition: color 0.3s ease;
+  color: black;
 }
 
 .title-container:hover .title-hover {
-  color: white; 
+  color: white;
 }
 
 
@@ -894,20 +931,23 @@ p {
   color: #67615A;
 }
 
-.tweet-button{
+.tweet-button {
   height: 50px;
   background-color: #f5f5f1;
 }
 
-.tweet-cont{
+.tweet-cont {
   background-color: white;
 }
-.active-button{
+
+.active-button {
   background-color: white;
 }
-.img-tweet{
+
+.img-tweet {
   width: 80%;
 }
+
 .footer-jumbo {
   background-image: url(../public/imgs/subscribe-sec-bg.png);
   background-repeat: no-repeat;
