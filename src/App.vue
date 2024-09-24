@@ -31,6 +31,12 @@ export default {
         { text: '<i class="fa-solid fa-magnifying-glass"></i>', url: '#' } // Icona Font Awesome
       ],
 
+      //Dati per i sales in futuro può essere aggiornato
+      saleslink : 39,
+
+  
+    
+
       //-----------------------------------------------MAIN CONTETNT---------------------------------------------------------
 
       //Dati per jumbotron
@@ -327,11 +333,11 @@ export default {
         </div>
         <div class="sales-cont">
           <div class="bg-light border-0 rounded-1 my-1 py-1 text-center">
-            <div><a href="#" class="text-black"><i class="fa-solid fa-folder fs-2"></i></a></div>
+            <div><a href="#" class="text-black" @click.prevent ><i class="fa-solid fa-folder fs-2"></i></a></div>
             <div><span class="p-2">Demos</span></div>
           </div>
           <div class="bg-light py-1 text-center border-0 rounded-1">
-            <div class="text-success"><span>$</span><span class="fs-3 fw-bold">39</span></div>
+            <div class="text-success"><span>$</span><span class="fs-3 fw-bold">{{saleslink}}</span></div>
             <div><span class="p-2">On Sale</span></div>
           </div>
         </div>
@@ -479,7 +485,7 @@ export default {
                   </div>
                   <p>{{ mainarticle.articles[0].desc }}</p>
                   <div class="d-flex justify-content-between">
-                    <div><a href="#" class="readlink-card">Read More ></a></div>
+                    <div><a href="#" @click.prevent class="readlink-card">Read More ></a></div>
                     <div><span><i class="fa-regular fa-comments"></i></span></div>
                   </div>
                 </div>
@@ -552,7 +558,7 @@ export default {
             <div class="border-0 rounded-1 tweet-cont">
               <div class="container py-2">
                 <div>
-                  <h5>Tweets <span>By<a href="#">@theme_fusion</a></span></h5>
+                  <h5>Tweets <span>By<a href="#" @click.prevent >@theme_fusion</a></span></h5>
                 </div>
                 <ul>
                   <li class="py-1">
@@ -603,7 +609,7 @@ export default {
           <div class="col-3 py-4 border-end">
             <img :src="footerlogo" alt="footerlogo">
             <div class="py-4">
-              <a class="text-secondary px-2" v-for="(icon, index) in headerrightLinks" :key="index" :href="icon.url">
+              <a class="text-secondary px-2" v-for="(icon, index) in headerrightLinks" :key="index" :href="icon.url" @click.prevent >
                 <i :class="icon.iconClass"></i>
               </a>
             </div>
@@ -611,7 +617,7 @@ export default {
           <div class="col-3 py-4 border-end">
             <ul>
               <li class="py-2" v-for="(link, index) in footerlink" :key="index">
-                <a :href="link.url" class="footer-link" v-html="link.text"></a>
+                <a :href="link.url" class="footer-link" v-html="link.text" @click.prevent ></a>
               </li>
             </ul>
           </div>
