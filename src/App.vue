@@ -47,17 +47,20 @@ export default {
           {
             img: './imgs/single-post-img3-400x263.jpg',
             title: 'Food Corner: Top Japanese Restaurants for Sushi',
-            desc: 'By admin | March 25th, 2019'
+            desc: 'By admin | March 25th, 2019',
+            url: '#'
           },
           {
             img: './imgs/fi-roundup-400x263.jpg',
             title: 'Roundup: My New Favourite Recipes For Healthy Living',
-            desc: 'By admin | March 25th, 2019'
+            desc: 'By admin | March 25th, 2019',
+            url: '#'
           },
           {
             img: './imgs/fi-toasts-400x263.jpg',
             title: 'Why These Toasts with Tea are My New Favorite',
-            desc: 'By admin | March 25th, 2019'
+            desc: 'By admin | March 25th, 2019',
+            url: '#'
           }
         ]
       },
@@ -68,55 +71,64 @@ export default {
             img: './imgs/Yogurt-Nan-600x395.jpg',
             title: 'Food Corner: Top Japanese Restaurants for Sushi',
             type: 'Bakery,Featured,Healthy,Latest Recipes, Staff Picks',
-            desc: 'By admin | March 25th, 2019'
+            desc: 'By admin | March 25th, 2019',
+            url: '#'
           },
           {
             img: './imgs/Mixed-fruits-200x132.jpg',
             title: 'Food Corner: Top Japanese Restaurants for Sushi',
             type: '',
-            desc: ''
+            desc: '',
+            url: '#'
           },
           {
             img: './imgs/r-rachel-park-366508-unsplash-min-200x132.jpg',
             title: 'Food Corner: Top Japanese Restaurants for Sushi',
             type: '',
-            desc: ''
+            desc: '',
+            url: '#'
           },
           {
             img: './imgs/r-michelle-tsang-500721-unsplash-min-200x132.jpg',
             title: 'Food Corner: Top Japanese Restaurants for Sushi',
             type: '',
-            desc: ''
+            desc: '',
+            url: '#'
           },
           {
             img: './imgs/quick-summer-drink-460x295.jpg',
             title: 'Food Corner: Top Japanese Restaurants for Sushi',
             type: '',
-            desc: ''
+            desc: '',
+            url: '#'
           },
           {
             img: './imgs/r-maarten-van-den-heuvel-400626-unsplash-min-460x295.jpg',
             title: 'Food Corner: Top Japanese Restaurants for Sushi',
             type: '',
-            desc: ''
+            desc: '',
+            url: '#'
           },
           {
             img: './imgs/perfect-cosmopolitan-460x295.jpg',
             title: 'Food Corner: Top Japanese Restaurants for Sushi',
             type: '',
-            desc: ''
+            desc: '',
+            url: '#'
           },
           {
             img: './imgs/fi2x-6-460x295.jpg',
             title: 'Food Corner: Top Japanese Restaurants for Sushi',
             type: '',
-            desc: ''
+            desc: '',
+            url: '#'
           },
           {
             img: './imgs/r-brooke-lark-96398-unsplash-min-460x295.jpg',
             title: 'Food Corner: Top Japanese Restaurants for Sushi',
             type: '',
-            desc: ''
+            desc: '',
+            url: '#'
           },
         ]
       },
@@ -162,7 +174,8 @@ export default {
           {
             img: './imgs/single-post-img3-800x527.jpg',
             title: 'Food Corner: Top Japanese Restaurants for Sushi',
-            data: 'By admin | March 25th, 2019'
+            data: 'By admin | March 25th, 2019',
+            desc:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."'
           },
           {
             img: './imgs/fi-roundup-400x263.jpg',
@@ -305,79 +318,116 @@ export default {
         </div>
 
       </section>
-      <section class="relative-cont">
-        <!--container con titolo e tre carte con immagine titolo e titoletto e alzato leggemente sopra all'altro container-->
+      <section class="relative-cont py-5">
         <div class="container journal-cont">
-          <div class="d-flex justify-content-center">
+          <div class="text-center mb-4">
             <h3>{{ journalcontent.maintitle }}</h3>
           </div>
-          <div class="d-flex justify-content-center">
+      
+          <div class="row">
             <!-- Ciclo sui contenuti del journal -->
-            <div v-for="(article, index) in journalcontent.articles" :key="index"
-              class="col-4 card d-flex justify-content-betweeen border-0 text-center my-2 px-3 py-4">
-              <img :src="article.img" alt="Journal image" class="journal-img">
-              <h4>{{ article.title }}</h4>
-              <p>{{ article.desc }}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="fixed-cont">
-        <!-- Titolo e paragrafo -->
-        <div class="container text-center">
-          <h3>POPULAR RECIPES</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, quae.</p>
-        </div>
-
-        <div class="container d-flex justify-content-between">
-          <!-- Container di sinistra: mostra solo il primo articolo -->
-          <div class="card col-6  border-0 rounded-0">
-            <img :src="popularrecipes.articles[0].img" alt="Recipe Image" class="img-fluid">
-            <h4 class="px-4 py-4">{{ popularrecipes.articles[0].title }}</h4>
-            <p class="px-4">{{ popularrecipes.articles[0].desc }}</p>
-            <div class="px-4">
-              <hr>
-            </div>
-            <p class="px-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam cupiditate quam, cum
-              quaerat sed
-              debitis qui aperiam maiores voluptas exercitationem quo. Optio maiores minima ipsa animi unde ab illo
-              aliquam sit, qui eaque eum quasi corporis id, alias corrupti odit ea laboriosam dignissimos nostrum error!
-              Fugiat adipisci ea dolorum maiores.</p>
-            <div class="px-4 my-5"><button class="py-2 sub-button">LEARN MORE</button></div>
-          </div>
-
-          <!-- Container di destra: mostra solo le immagini degli altri articoli -->
-          <div class="col-6 px-3">
-            <div class="row">
-              <!-- Itera su tutti gli articoli tranne il primo e mostra 2 immagini per riga -->
-              <div v-for="(article, index) in popularrecipes.articles.slice(1)" :key="index"
-                class="col-6 mb-3 pm-3 d-flex justify-content-center">
-                <img :src="article.img" alt="Recipe Image" class="img-articles">
+            <div v-for="(article, index) in journalcontent.articles" :key="index" class="col-md-4">
+              <div class="card journal-card border-0 text-center my-2">
+                <!-- Immagine con overlay e link -->
+                <div class="card-img-wrapper position-relative">
+                  <a :href="article.url" @click.prevent class="d-block">
+                    <img :src="article.img" alt="Journal image" class="journal-img img-fluid">
+                    <!-- Overlay arancione con link e titolo -->
+                    <div class="hover-overlay d-flex justify-content-center align-items-center flex-column">
+                      <div class="hover-icon mb-2">
+                        <i class="fa fa-link"></i>
+                      </div>
+                      <h4 class="overlay-title text-white">{{ article.title }}</h4>
+                    </div>
+                  </a>
+                </div>
+                <!-- Titolo sempre visibile sotto l'immagine -->
+                <h4 class="mt-3">{{ article.title }}</h4>
+                <p>{{ article.desc }}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
+      
+      <section class="fixed-cont">
+        <!-- Titolo e paragrafo -->
+        <div class="container text-center">
+          <h3>POPULAR RECIPES</h3>
+          <p class="py-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, quae.</p>
+        </div>
+      
+        <div class="container d-flex justify-content-between">
+          <!-- Container di sinistra: mostra solo il primo articolo -->
+          <div class="card recipes-cont col-6 border-0 rounded-0 position-relative">
+            <div class="position-relative"> <!-- Aggiunto per il posizionamento dell'overlay -->
+              <img :src="popularrecipes.articles[0].img" alt="Recipe Image" class="img-fluid">
+              
+              <!-- Overlay per l'immagine -->
+              <div class="hover-overlay d-flex justify-content-center align-items-center flex-column">
+                <a :href="popularrecipes.articles[0].url" @click.prevent class="hover-icon mb-2"> <!-- Rendi l'icona un link -->
+                  <i class="fa fa-link"></i>
+                </a>
+                <h4 class="overlay-title">{{ popularrecipes.articles[0].title }}</h4> <!-- Titolo nell'overlay -->
+              </div>
+            </div>
+      
+            <h4 class="px-4 py-4">{{ popularrecipes.articles[0].title }}</h4>
+            <p class="px-4">{{ popularrecipes.articles[0].type }}</p>
+            <div class="px-4">
+              <hr>
+            </div>
+            <p class="px-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam cupiditate quam, cum quaerat sed debitis qui aperiam maiores voluptas exercitationem quo. Optio maiores minima ipsa animi unde ab illo aliquam sit, qui eaque eum quasi corporis id, alias corrupti odit ea laboriosam dignissimos nostrum error! Fugiat adipisci ea dolorum maiores.
+            </p>
+            <div class="px-4 my-5">
+              <button class="py-2 sub-button">LEARN MORE</button>
+            </div>
+          </div>
+      
+          <!-- Container di destra: mostra solo le immagini degli altri articoli -->
+          <div class="col-6 px-3">
+            <div class="row">
+              <!-- Itera su tutti gli articoli tranne il primo e mostra 2 immagini per riga -->
+              <div v-for="(article, index) in popularrecipes.articles.slice(1)" :key="index"
+                class="col-6 mb-3 pm-3 d-flex justify-content-center position-relative card-img-wrapper">
+                <img :src="article.img" alt="Recipe Image" class="img-articles img-fluid">
+                <!-- Overlay hover per le immagini più piccole -->
+                <div class="hover-overlay d-flex justify-content-center align-items-center flex-column">
+                  <a :href="article.url" @click.prevent class="hover-icon mb-2"> <!-- Rendi l'icona un link -->
+                    <i class="fa fa-link"></i>
+                  </a>
+                  <h4 class="overlay-title">{{ article.title }}</h4> <!-- Mostra il titolo qui -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
       <section class="py-5">
-        <!--container con titolo paragrafo e un altro container con dentro 8 immagini con sfondo e titolo-->
         <div class="container text-center py-5">
           <h3 class="py-5">CULINARY COLLECTION</h3>
           <p class="py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, quae.</p>
         </div>
         <div class="container">
           <div class="row">
-            <!-- Itera sui dati della collezione culinaria per creare la griglia 4x2 -->
             <div v-for="(item, index) in culinarycoll" :key="index" class="col-3 mb-4">
               <div class="card border-0 rounded-0 text-center hover-card">
                 <img :src="item.img" alt="Culinary Image" class="img-fluid img-culinary">
-                <h5 class="mt-2">{{ item.title }}</h5>
+                <div class="title-container mt-2"> <!-- Nuovo div per il titolo -->
+                  <h5 class="title-hover">{{ item.title }}</h5>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
       </section>
+      
+      
+      
+      
       <section>
         <!--container con a sinistra titolo e paragrafo e a destra un buttone arancione-->
         <div class="container d-flex justify-content-between align-items-center">
@@ -385,7 +435,7 @@ export default {
             <div>FARM TO TABLE</div>
             <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi, quas.</div>
           </div>
-          <div class="">
+          <div>
             <button class="py-2 sub-button">READ OUR BLOG <span><i class="fa-solid fa-book-open"></i></span></button>
           </div>
         </div>
@@ -402,6 +452,12 @@ export default {
                 <div class="card-body">
                   <h5 class="card-title">{{ mainarticle.articles[0].title }}</h5>
                   <p class="card-text">{{ mainarticle.articles[0].data }}</p>
+                  <div><hr class="style-hr"></div>
+                  <p>{{mainarticle.articles[0].desc}}</p>
+                  <div class="d-flex justify-content-between">
+                    <div><a href="#" class="readlink-card">Read More ></a></div>
+                    <div><span><i class="fa-regular fa-comments"></i></span></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -475,14 +531,18 @@ export default {
               
             </div>
             <div class="border-0 rounded-1 tweet-cont">
-              <div class="container">
+              <div class="container py-2">
                 <div><h5>Tweets <span>By<a href="#">@theme_fusion</a></span></h5></div>
                 <ul>
-                  <li>
+                  <li class="py-1">
                     <h6>ThemeFusion</h6>
                     <span>@theme_fusion</span>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi labore commodi sequi? Repellat cupiditate blanditiis recusandae natus, aperiam sint numquam, in provident voluptatibus, voluptate molestiae dolorum eaque doloribus commodi quidem!</p>
                     <div class="py-1"><img src="../public/imgs/En2TRxLW4AEiWUN.jpeg" alt="" class="img-tweet"></div>
+                    <div class="d-flex justify-content-between py-2">
+                      <div><span><i class="fa-regular fa-heart"></i></span><span class="px-3"><i class="fa-solid fa-right-from-bracket"></i></span></div>
+                      <div><span>21h</span></div>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -562,7 +622,6 @@ export default {
 
 header {
   background-color: #f5f5f1;
-
 }
 
 header>div a {
@@ -570,7 +629,6 @@ header>div a {
 }
 
 ul>li {
-  /* rimozione dei pallini nelle liste */
   list-style: none;
 }
 
@@ -588,31 +646,28 @@ a.nav-link {
   text-decoration: none;
   font-size: bold;
   color: #000;
-  /* Colore del testo */
   font-size: 18px;
   font-weight: 500;
   padding: 10px;
   transition: color 0.3s ease;
-  /* Transizione del colore */
+  
 }
 
-/* Pseudo-elemento per l'effetto hover */
+
 a.nav-link::after {
   content: '';
   position: absolute;
   bottom: -5px;
-  /* Posiziona la linea subito sotto il link */
   left: 50%;
   width: 0;
   height: 2px;
   background-color: #ff6347;
-  /* Colore della linea */
   transition: width 0.3s ease, left 0.3s ease;
 }
 
 a.nav-link:hover {
   color: #ff6347;
-  /* Colore quando si passa sopra il link  */
+ 
 }
 
 a.nav-link:hover::after {
@@ -653,11 +708,124 @@ main {
 }
 
 .journal-cont {
+  position: relative;
+}
+
+.journal-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+
+.card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.readlink-card{
+  text-decoration: none;
+  color: #000;
+}
+.hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:#ff6347b7;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+}
+
+.card:hover .hover-overlay {
+  opacity: 1;
+}
+
+
+.hover-icon {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hover-icon i {
+  font-size: 20px;
+  color: black;
+}
+
+
+.overlay-title {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+}
+
+h4 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+p {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-articles {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.card-img-wrapper:hover .hover-overlay {
+  opacity: 1;
+}
+/* Icona circolare */
+.hover-icon {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hover-icon i {
+  font-size: 20px;
+  color: black;
+}
+
+.journal-cont {
   position: absolute;
   left: 0;
   right: 0;
   top: -70px;
   background-color: white;
+}
+.recipes-cont img {
+  width: 100%;        
+  height: auto;      
+  display: block;    
+}
+.hover-icon {
+  color: white; 
+  font-size: 24px; 
 }
 
 .fixed-cont {
@@ -668,6 +836,25 @@ main {
   width: 100%;
   height: 100%;
 }
+.title-container {
+  transition: background-color 0.3s ease; 
+  padding: 10px; 
+}
+
+.title-container:hover {
+  background-color: #ff6347; 
+}
+
+.title-hover {
+  transition: color 0.3s ease; 
+  color: black; 
+}
+
+.title-container:hover .title-hover {
+  color: white; 
+}
+
+
 
 .img-culinary {
   width: 50%;
